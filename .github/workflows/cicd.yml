@@ -7,10 +7,10 @@ on:
 jobs:
 
   checkout:
-    uses : adekurniawann/case-workflows/.github/workflows/checkout.yml@main
+    uses : ADE-CASE/case-workflows/.github/workflows/checkout.yml@main
     
   docker:
-    uses : adekurniawann/case-workflows/.github/workflows/docker.yml@main
+    uses : ADE-CASE/case-workflows/.github/workflows/docker.yml@main
     secrets:
       docker_hub_username: ${{ secrets.DOCKER_HUB_USERNAME }}
       docker_hub_token: ${{ secrets.DOCKER_HUB_TOKEN }}
