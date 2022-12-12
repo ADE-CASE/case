@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-interview-test-service
+spec:
+  selector:
+    app: k8-test
+  ports:
+    - port: 13300
+      targetPort: 3300

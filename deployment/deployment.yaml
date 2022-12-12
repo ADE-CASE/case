@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-interview-test
+spec:
+  selector:
+    matchLabels:
+      app: k8-test
+  template:
+    metadata:
+      labels:
+        app: k8-test
+    spec:
+      containers:
+        - name: k8-test
+          image: adeekur861/case-study:case-8
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '100m'
+          ports:
+            - containerPort: 3300
+          # Health Check Probs
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3300
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3300
+            initialDelaySeconds: 15
+            periodSeconds: 5
