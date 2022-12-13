@@ -6,6 +6,10 @@ on:
       - 'main'
       - 'staging'
       - 'dev'
+    #  tags:
+    #   - v*-dev
+    #   - v*-prod
+    #   - v*-staging
 
 jobs:
 
@@ -13,6 +17,7 @@ jobs:
     uses : ADE-CASE/case-workflows/.github/workflows/checkout.yml@main
     
   production:
+    # if: (github.event.base_ref == 'refs/heads/production') && (endsWith(github.event.ref, 'prod'))
     if: ${{ github.ref == 'refs/heads/main' }}
     uses : ADE-CASE/case-workflows/.github/workflows/docker.yml@main
     secrets:
@@ -20,6 +25,7 @@ jobs:
       docker_hub_token: ${{ secrets.DOCKER_HUB_TOKEN }}
   
   staging:
+    # if: (github.event.base_ref == 'refs/heads/staging') && (endsWith(github.event.ref, 'staging'))
     if: ${{ github.ref == 'refs/heads/staging' }}
     uses : ADE-CASE/case-workflows/.github/workflows/docker.yml@main
     secrets:
@@ -27,6 +33,7 @@ jobs:
       docker_hub_token: ${{ secrets.DOCKER_HUB_TOKEN }}
   
   development:
+    # if: (github.event.base_ref != 'refs/heads/production') && (endsWith(github.event.ref, 'dev'))
     if: ${{ github.ref == 'refs/heads/dev' }}
     uses : ADE-CASE/case-workflows/.github/workflows/docker.yml@main
     secrets:
