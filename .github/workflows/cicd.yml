@@ -23,7 +23,7 @@ jobs:
     secrets:
       dh_username: ${{ secrets.DH_USERNAME }}
       dh_token: ${{ secrets.DH_TOKEN }}
-      mangile: ${{ secrets.MANGGIL }}
+      manggile: ${{ secrets.MANGGIL }}
   
   staging:
     # if: (github.event.base_ref == 'refs/heads/staging') && (endsWith(github.event.ref, 'staging'))
@@ -32,7 +32,7 @@ jobs:
     secrets:
       dh_username: ${{ secrets.DH_USERNAME }}
       dh_token: ${{ secrets.DH_TOKEN }}
-      mangile: ${{ secrets.MANGGIL }}
+      manggile: ${{ secrets.MANGGIL }}
   
   development:
     # if: (github.event.base_ref != 'refs/heads/production') && (endsWith(github.event.ref, 'dev'))
@@ -41,4 +41,4 @@ jobs:
     secrets:
       dh_username: ${{ secrets.DH_USERNAME }}
       dh_token: ${{ secrets.DH_TOKEN }}
-      mangile: ${{ secrets.MANGGIL }}
+      manggile: ${{ secrets.MANGGIL }}
