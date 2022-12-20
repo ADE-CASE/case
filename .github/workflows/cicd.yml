@@ -21,21 +21,21 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     uses : ADE-CASE/case-workflows/.github/workflows/docker.yml@main
     secrets:
-      docker_hub_username: ${{ secrets.DOCKER_HUB_USERNAME }}
-      docker_hub_token: ${{ secrets.DOCKER_HUB_TOKEN }}
+      dh_username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      dh_token: ${{ secrets.DOCKER_HUB_TOKEN }}
   
   staging:
     # if: (github.event.base_ref == 'refs/heads/staging') && (endsWith(github.event.ref, 'staging'))
     if: ${{ github.ref == 'refs/heads/staging' }}
     uses : ADE-CASE/case-workflows/.github/workflows/docker.yml@main
     secrets:
-      docker_hub_username: ${{ secrets.DOCKER_HUB_USERNAME }}
-      docker_hub_token: ${{ secrets.DOCKER_HUB_TOKEN }}
+      dh_username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      dh_token: ${{ secrets.DOCKER_HUB_TOKEN }}
   
   development:
     # if: (github.event.base_ref != 'refs/heads/production') && (endsWith(github.event.ref, 'dev'))
     if: ${{ github.ref == 'refs/heads/dev' }}
     uses : ADE-CASE/case-workflows/.github/workflows/docker.yml@main
     secrets:
-      docker_hub_username: ${{ secrets.DOCKER_HUB_USERNAME }}
-      docker_hub_token: ${{ secrets.DOCKER_HUB_TOKEN }}
+      dh_username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      dh_token: ${{ secrets.DOCKER_HUB_TOKEN }}
